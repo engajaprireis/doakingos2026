@@ -1,86 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
-  <title>Doa Kingos 2026</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doa Kingos 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #ffffff, #ffe6e6);
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #ffffff, #f8eaea);
       text-align: center;
       padding: 40px 20px;
+      color: #222;
     }
 
     .idiomas {
       position: absolute;
       top: 20px;
-      right: 20px;
+      right: 30px;
     }
 
     .idiomas a {
-      margin-left: 10px;
+      margin-left: 12px;
       text-decoration: none;
-      font-weight: bold;
-      color: #b30000;
+      font-weight: 600;
+      color: #8b0000;
     }
 
     h1 {
-      font-size: 42px;
-      color: #b30000;
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      color: #8b0000;
+      margin-bottom: 10px;
+    }
+
+    .frase {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
     }
 
     .contador {
-      font-size: 70px;
-      font-weight: bold;
-      color: #b30000;
+      font-size: 72px;
+      font-weight: 600;
+      color: #8b0000;
+    }
+
+    .meta {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
     }
 
     .barra-container {
       width: 100%;
       max-width: 500px;
-      height: 30px;
-      background-color: #eee;
-      border-radius: 20px;
-      margin: 20px auto;
+      height: 28px;
+      background: #eee;
+      border-radius: 50px;
+      margin: 0 auto 40px;
       overflow: hidden;
     }
 
     .barra {
       height: 100%;
       width: 0%;
-      background-color: #b30000;
+      background: #8b0000;
+      transition: width 1s ease-in-out;
     }
 
     button {
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: #b30000;
+      padding: 14px 32px;
+      font-size: 16px;
+      background: #8b0000;
       color: white;
       border: none;
-      border-radius: 30px;
+      border-radius: 40px;
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #5c0000;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 13px;
+      color: #555;
     }
   </style>
 </head>
 <body>
 
-  <div class="idiomas">
-    <a href="index.html">PT</a>
-    <a href="en.html">EN</a>
-    <a href="es.html">ES</a>
-  </div>
+<div class="idiomas">
+  <a href="index.html">PT</a>
+  <a href="en.html">EN</a>
+  <a href="es.html">ES</a>
+</div>
 
-  <h1>🩸 DOA KINGOS 2026</h1>
-  <p>Meta anual: 300 doações</p>
+<h1>🩸 DOA KINGOS 2026</h1>
+<div class="frase">Amar é cuidar. Cuidar é doar.</div>
 
-  <div class="contador">0 / 300</div>
+<div class="contador" id="contador">0 / 350</div>
+<div class="meta">Meta anual: 350 doações</div>
 
-  <div class="barra-container">
-    <div class="barra"></div>
-  </div>
+<div class="barra-container">
+  <div class="barra" id="barra"></div>
+</div>
 
-  <button>Registrar minha doação</button>
+<button>Registrar minha doação</button>
+
+<footer>
+Uma mobilização anual inspirada por Priscilla Reis
+</footer>
+
+<script>
+  let doacoes = 0;
+  let meta = 350;
+
+  function atualizar() {
+    document.getElementById("contador").innerText = doacoes + " / " + meta;
+    let porcentagem = (doacoes / meta) * 100;
+    document.getElementById("barra").style.width = porcentagem + "%";
+  }
+
+  atualizar();
+</script>
 
 </body>
 </html>
