@@ -7,18 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#f1f1f1; color:#2b2b2b; display:flex; justify-content:center; min-height:100vh; }
-.topo { position:fixed; top:0; left:0; width:100%; background:#8a0c10; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; z-index:1000; box-sizing:border-box; }
-.menu-esquerda { display:flex; gap:10px; align-items:center; }
-.menu-esquerda a { text-decoration:none; color:#f1f1f1; font-family:'Bebas Neue',sans-serif; font-size:16px; }
-.menu-esquerda a:hover { opacity:0.8; }
-.idiomas { display:flex; gap:15px; }
-.idiomas a { text-decoration:none; color:#f1f1f1; font-size:14px; font-weight:600; }
-.idiomas a:hover { opacity:0.8; }
-.menu-lateral { position:fixed; left:-250px; top:0; width:250px; height:100%; background:#8a0c10; overflow:hidden; transition:all 0.3s ease; }
-.menu-lateral a { display:block; color:white; padding:20px; text-decoration:none; font-size:16px; }
+.topo { position:fixed; top:0; left:0; width:100%; background:#8a0c10; display:flex; justify-content:space-between; align-items:center; padding:20px 60px; z-index:1000; box-sizing:border-box; }
+.menu-esquerda { display:flex; gap:20px; }
+.hamburguer-menu { font-size:24px; cursor:pointer; color:white; }
+.menu-lateral { position:fixed; left:-250px; top:0; width:250px; height:100%; background-color:#8a0c10; overflow:hidden; transition:all 0.3s ease; }
+.menu-lateral a { display:block; color:white; padding:15px 20px; text-decoration:none; font-size:16px; }
 .menu-lateral a:hover { background:#5e1616; }
 .menu-lateral.show { left:0; }
-.hamburguer-menu { font-size:30px; cursor:pointer; color:white; }
+.idiomas { display:flex; gap:10px; }
+.idiomas a { text-decoration:none; color:white; font-size:14px; font-weight:600; }
+.idiomas a:hover { opacity:0.8; }
 .container { text-align:center; max-width:700px; padding:40px; }
 .hero { width:100%; max-width:700px; height:auto; margin-bottom:30px; }
 .frase { font-size:18px; font-weight:500; margin-bottom:60px; color:#444; letter-spacing:1px; }
@@ -57,7 +55,9 @@ body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#
   <div class="frase">Amar é cuidar. Cuidar é doar.</div>
   <div class="contador" id="contador">0 / 350</div>
   <div class="meta">Meta anual · 350 doações</div>
-  <div class="barra-container"><div class="barra" id="barra"></div></div>
+  <div class="barra-container">
+    <div class="barra" id="barra"></div>
+  </div>
   <a href="https://forms.gle/T1idUPskdBPYYDeXA" target="_blank" class="botao">REGISTRAR MINHA DOAÇÃO</a>
   <div class="engaja">
     <img src="logo.png" alt="Engaja Pri Reis">
@@ -66,11 +66,10 @@ body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#
 </div>
 
 <script>
-function toggleMenu(){document.getElementById("menu-lateral").classList.toggle("show");}
-let doacoes=0,meta=350;
-function atualizar(){document.getElementById("contador").innerText=doacoes+" / "+meta;document.getElementById("barra").style.width=(doacoes/meta*100)+"%";}
+function toggleMenu(){ const menu = document.getElementById("menu-lateral"); menu.classList.toggle("show"); }
+let doacoes = 0; let meta = 350;
+function atualizar(){ document.getElementById("contador").innerText = doacoes + " / " + meta; document.getElementById("barra").style.width = (doacoes/meta*100)+"%"; }
 atualizar();
 </script>
-
 </body>
 </html>
