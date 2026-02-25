@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-
+    /* Estilos do Menu Hamburguer */
     body {
       margin: 0;
       padding-top: 100px;
@@ -16,13 +16,11 @@
       background: #f1f1f1;
       color: #2b2b2b;
       display: flex;
-      align-items: center;
       justify-content: center;
       min-height: 100vh;
     }
 
     /* ===== TOPO ===== */
-
     .topo {
       position: fixed;
       top: 0;
@@ -70,8 +68,42 @@
       opacity: 0.8;
     }
 
-    /* ===== CONTEÚDO ===== */
+    /* Menu Lateral */
+    .menu-lateral {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #8a0c10;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
 
+    .menu-lateral a {
+      display: block;
+      color: white;
+      padding: 20px;
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    .menu-lateral a:hover {
+      background-color: #5e1616;
+    }
+
+    .hamburguer-menu {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* Exibição do menu hamburguer (ocultar no desktop) */
+    .menu-lateral.show {
+      left: 0;
+    }
+
+    /* ===== CONTEÚDO ===== */
     .container {
       text-align: center;
       max-width: 700px;
@@ -164,19 +196,26 @@
 <body>
 
 <header class="topo">
-   <div class="menu-esquerda">
-    <a href="index.html">INÍCIO</a>
-    <a href="comofunciona.html">COMO FUNCIONA</a>
-    <a href="informacoes.html">INFORMAÇÕES IMPORTANTES</a> <!-- NOVO BOTÃO -->
-</div>
+  <!-- Menu Hamburguer (☰) e Idiomas -->
+  <div class="menu-esquerda">
+    <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
+  </div>
 
-    <div class="idiomas">
-        <a href="index.html">PT</a>
-        <a href="en.html">EN</a>
-        <a href="es.html">ES</a>
-    </div>
+  <div class="idiomas">
+    <a href="index.html">PT</a>
+    <a href="en.html">EN</a>
+    <a href="es.html">ES</a>
+  </div>
 </header>
 
+<!-- Menu Lateral -->
+<div class="menu-lateral" id="menu-lateral">
+  <a href="index.html">INÍCIO</a>
+  <a href="comofunciona.html">COMO FUNCIONA</a>
+  <a href="informacoes.html">INFORMAÇÕES IMPORTANTES</a>
+</div>
+
+<!-- Conteúdo -->
 <div class="container">
 
   <img src="arte-titulo.png" class="hero" alt="Doa Kingos 2026">
@@ -203,6 +242,11 @@
 </div>
 
 <script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu-lateral");
+    menu.classList.toggle("show");
+  }
+
   let doacoes = 0;
   let meta = 350;
 
