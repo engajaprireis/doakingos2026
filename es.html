@@ -8,15 +8,101 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    body { margin: 0; padding-top: 100px; font-family: 'Inter', sans-serif; background: #f1f1f1; color: #2b2b2b; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-    .topo { position: fixed; top: 0; left: 0; width: 100%; background: #8a0c10; display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; z-index: 1000; box-sizing: border-box; }
-    .menu-esquerda { display: flex; gap: 40px; }
-    .menu-esquerda a { text-decoration: none; color: #f1f1f1; font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; }
+    /* ===== MENU HAMBURGUER ===== */
+    body {
+      margin: 0;
+      padding-top: 100px;
+      font-family: 'Inter', sans-serif;
+      background: #f1f1f1;
+      color: #2b2b2b;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .topo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #8a0c10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    .menu-esquerda {
+      display: flex;
+      gap: 40px;
+    }
+
+    .menu-esquerda a, .hamburguer-menu {
+      text-decoration: none;
+      color: #f1f1f1;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+
     .menu-esquerda a:hover { opacity: 0.8; }
-    .idiomas { display: flex; gap: 20px; }
-    .idiomas a { text-decoration: none; color: #f1f1f1; font-size: 14px; font-weight: 600; }
+
+    .idiomas {
+      display: flex;
+      gap: 20px;
+    }
+
+    .idiomas a {
+      text-decoration: none;
+      color: #f1f1f1;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
     .idiomas a:hover { opacity: 0.8; }
-    .container { text-align: center; max-width: 700px; padding: 40px; }
+
+    .menu-lateral {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #8a0c10;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .menu-lateral a {
+      display: block;
+      color: white;
+      padding: 20px;
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    .menu-lateral a:hover {
+      background-color: #5e1616;
+    }
+
+    .hamburguer-menu {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .menu-lateral.show {
+      left: 0;
+    }
+
+    /* ===== CONTEÚDO ===== */
+    .container {
+      text-align: center;
+      max-width: 700px;
+      padding: 40px;
+    }
+
     .hero { width: 100%; max-width: 700px; height: auto; margin-bottom: 30px; }
     .frase { font-size: 18px; font-weight: 500; margin-bottom: 60px; color: #444; letter-spacing: 1px; }
     .contador { font-size: 90px; font-weight: 600; color: #8a0c10; }
@@ -35,9 +121,7 @@
 
 <header class="topo">
   <div class="menu-esquerda">
-    <a href="es.html">INICIO</a>
-    <a href="comofunciona-es.html">CÓMO FUNCIONA</a>
-    <a href="info-es.html">INFORMACIÓN IMPORTANTE</a>
+    <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
   </div>
   <div class="idiomas">
     <a href="index.html">PT</a>
@@ -45,6 +129,13 @@
     <a href="es.html">ES</a>
   </div>
 </header>
+
+<!-- Menu Lateral -->
+<div class="menu-lateral" id="menu-lateral">
+  <a href="es.html">INICIO</a>
+  <a href="comofunciona-es.html">CÓMO FUNCIONA</a>
+  <a href="info-es.html">INFORMACIÓN IMPORTANTE</a>
+</div>
 
 <div class="container">
 
@@ -72,6 +163,11 @@
 </div>
 
 <script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu-lateral");
+    menu.classList.toggle("show");
+  }
+
   let doacoes = 0;
   let meta = 350;
 
