@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Información Importante | Doa Kingos 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#f1f1f1; color:#2b2b2b; display:flex; justify-content:center; min-height:100vh; }
+.topo { position:fixed; top:0; left:0; width:100%; background:#8a0c10; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; z-index:1000; box-sizing:border-box; }
+.menu-esquerda { display:flex; gap:10px; align-items:center; }
+.menu-esquerda a { text-decoration:none; color:#f1f1f1; font-family:'Bebas Neue',sans-serif; font-size:16px; }
+.menu-esquerda a:hover { opacity:0.8; }
+.idiomas { display:flex; gap:15px; }
+.idiomas a { text-decoration:none; color:#f1f1f1; font-size:14px; font-weight:600; }
+.idiomas a:hover { opacity:0.8; }
+.menu-lateral { position:fixed; left:-250px; top:0; width:250px; height:100%; background:#8a0c10; overflow:hidden; transition:all 0.3s ease; }
+.menu-lateral a { display:block; color:white; padding:20px; text-decoration:none; font-size:16px; }
+.menu-lateral a:hover { background:#5e1616; }
+.menu-lateral.show { left:0; }
+.hamburguer-menu { font-size:30px; cursor:pointer; color:white; }
+.container { max-width:800px; padding:40px; }
+.faq-item { background:#fff; border-radius:8px; margin-bottom:15px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+.faq-question { padding:20px; font-family:'Bebas Neue',sans-serif; font-size:18px; cursor:pointer; background:#8a0c10; color:#fff; transition:0.3s; }
+.faq-question:hover { background:#5e1616; }
+.faq-answer { padding:20px; font-size:16px; line-height:1.6; color:#444; display:none; background:#f9f9f9; }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="menu-esquerda">
+    <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
+  </div>
+  <div class="idiomas">
+    <a href="index.html">PT</a>
+    <a href="en.html">EN</a>
+    <a href="es.html">ES</a>
+  </div>
+</header>
+
+<div class="menu-lateral" id="menu-lateral">
+  <a href="es.html">INICIO</a>
+  <a href="comofunciona-es.html">CÓMO FUNCIONA</a>
+  <a href="info-es.html">INFORMACIÓN IMPORTANTE</a>
+</div>
+
+<div class="container">
+  <div class="faq-item">
+    <div class="faq-question">NO PUEDO DONAR SANGRE</div>
+    <div class="faq-answer">
+      ¡No hay problema! Puedes usar el comprobante de familiares o amigos que hayan donado. Si no es posible, difundir la campaña ya es una gran ayuda.
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">EL COMPROBANTE ES OBLIGATORIO</div>
+    <div class="faq-answer">
+      Para registrar tu donación en la campaña, adjuntar el comprobante (IMAGEN/PDF) en el sitio web es obligatorio.
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">SEGURIDAD Y CONFIABILIDAD</div>
+    <div class="faq-answer">
+      Todos los datos son confidenciales y utilizados solo para fines de la campaña.
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">DONACIONES REALIZADAS ANTES DE LA CAMPAÑA</div>
+    <div class="faq-answer">
+      Si realizaste tu donación antes del inicio de la campaña, pero durante 2026, también será válida para Doa Kingos 2026.
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">OTRAS DUDAS</div>
+    <div class="faq-answer">
+      Si tienes alguna pregunta, contacta con las redes sociales de Engaja Pri Reis y te ayudaremos.
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleMenu(){document.getElementById("menu-lateral").classList.toggle("show");}
+const questions=document.querySelectorAll('.faq-question');questions.forEach(q=>{q.addEventListener('click',()=>{const a=q.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block';});});
+</script>
+
+</body>
+</html>
