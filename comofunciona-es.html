@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cómo Funciona | Dona Kingos 2026</title>
+  <title>Como Funciona | Doa Kingos 2026</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-
+    /* ===== ESTILOS MENU HAMBURGUER ===== */
     body {
       margin: 0;
       padding-top: 100px;
@@ -16,12 +16,9 @@
       background: #f1f1f1;
       color: #2b2b2b;
       display: flex;
-      align-items: center;
       justify-content: center;
       min-height: 100vh;
     }
-
-    /* ===== TOPO ===== */
 
     .topo {
       position: fixed;
@@ -42,7 +39,7 @@
       gap: 40px;
     }
 
-    .menu-esquerda a {
+    .menu-esquerda a, .hamburguer-menu {
       text-decoration: none;
       color: #f1f1f1;
       font-family: 'Bebas Neue', sans-serif;
@@ -70,8 +67,40 @@
       opacity: 0.8;
     }
 
-    /* ===== CONTEÚDO ===== */
+    .menu-lateral {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #8a0c10;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
 
+    .menu-lateral a {
+      display: block;
+      color: white;
+      padding: 20px;
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    .menu-lateral a:hover {
+      background-color: #5e1616;
+    }
+
+    .hamburguer-menu {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .menu-lateral.show {
+      left: 0;
+    }
+
+    /* ===== CONTEÚDO ===== */
     .container {
       text-align: center;
       max-width: 800px;
@@ -110,44 +139,53 @@
 <body>
 
 <header class="topo">
-    <div class="menu-esquerda">
-        <a href="es.html">INICIO</a>
-        <a href="comofunciona-es.html">CÓMO FUNCIONA</a>
-        <a href="info-es.html">INFORMACIÓN IMPORTANTE</a>
-    </div>
-
-    <div class="idiomas">
-        <a href="index.html">PT</a>
-        <a href="en.html">EN</a>
-        <a href="es.html">ES</a>
-    </div>
+  <div class="menu-esquerda">
+    <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
+  </div>
+  <div class="idiomas">
+    <a href="index.html">PT</a>
+    <a href="en.html">EN</a>
+    <a href="es.html">ES</a>
+  </div>
 </header>
 
-<div class="container">
-
-  <div class="titulo">CÓMO FUNCIONA</div>
-
-  <div class="passo">
-    <h3>1. Realiza tu donación</h3>
-    <p>Dirígete a un centro de donación o banco de sangre en tu ciudad y realiza tu donación normalmente.</p>
-  </div>
-
-  <div class="passo">
-    <h3>2. Guarda tu comprobante</h3>
-    <p>Después de donar, guarda o toma una foto del comprobante de donación proporcionado por el lugar.</p>
-  </div>
-
-  <div class="passo">
-    <h3>3. Regístralo en el sitio</h3>
-    <p>En la página principal, haz clic en <strong>“Registrar mi donación”</strong>, completa el formulario y adjunta tu comprobante.</p>
-  </div>
-
-  <div class="passo">
-    <h3>4. Tu donación será contabilizada</h3>
-    <p>Después de la verificación, tu donación se sumará a nuestro contador oficial de la campaña.</p>
-  </div>
-
+<!-- Menu Lateral -->
+<div class="menu-lateral" id="menu-lateral">
+  <a href="index.html">INÍCIO</a>
+  <a href="comofunciona.html">COMO FUNCIONA</a>
+  <a href="informacoes.html">INFORMAÇÕES IMPORTANTES</a>
 </div>
+
+<div class="container">
+  <div class="titulo">COMO FUNCIONA</div>
+
+  <div class="passo">
+    <h3>1. Faça sua doação</h3>
+    <p>Vá até um hemocentro ou banco de sangue em sua cidade e doe normalmente.</p>
+  </div>
+
+  <div class="passo">
+    <h3>2. Guarde seu comprovante</h3>
+    <p>Após a doação, guarde ou fotografe o comprovante fornecido pelo hemocentro.</p>
+  </div>
+
+  <div class="passo">
+    <h3>3. Cadastre no site</h3>
+    <p>Na página inicial, clique em <strong>"Registrar minha doação"</strong>, preencha o formulário e anexe o comprovante.</p>
+  </div>
+
+  <div class="passo">
+    <h3>4. Sua doação será contabilizada</h3>
+    <p>Após a verificação, sua doação será adicionada ao contador oficial da campanha.</p>
+  </div>
+</div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu-lateral");
+    menu.classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>
