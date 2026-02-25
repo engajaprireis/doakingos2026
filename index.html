@@ -173,17 +173,41 @@
 .menu-item:hover {
   opacity: 0.7;
 }
-    
+   .menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #6B0F1A; /* vinho */
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 20px 60px;
+  z-index: 1000;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: #f1f1f1; /* cor clara */
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.menu-link:hover {
+  opacity: 0.8;
+}
+
+.destaque {
+  font-weight: bold;
+} 
   </style>
 </head>
 
 <body>
 
-<header class="topo">
-  <div class="menu">
-    <a href="index.html" class="logo-menu">Início</a>
-    <a href="tutorial.html" class="menu-item">Como Funciona</a>
-  </div>
+<header class="menu">
+  <a href="index.html" class="menu-link">INÍCIO</a>
+  <a href="como.html" class="menu-link destaque">COMO FUNCIONA</a>
 </header>
   
 <div class="idiomas">
