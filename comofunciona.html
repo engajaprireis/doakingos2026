@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Como Funciona | Doa Kingos 2026</title>
+<title>Doa Kingos 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#f1f1f1; color:#2b2b2b; display:flex; justify-content:center; min-height:100vh; }
-.topo { position:fixed; top:0; left:0; width:100%; background:#8a0c10; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; z-index:1000; box-sizing:border-box; }
-.menu-esquerda { display:flex; gap:10px; align-items:center; }
-.menu-esquerda a { text-decoration:none; color:#f1f1f1; font-family:'Bebas Neue',sans-serif; font-size:16px; }
-.menu-esquerda a:hover { opacity:0.8; }
-.idiomas { display:flex; gap:15px; }
-.idiomas a { text-decoration:none; color:#f1f1f1; font-size:14px; font-weight:600; }
-.idiomas a:hover { opacity:0.8; }
-.menu-lateral { position:fixed; left:-250px; top:0; width:250px; height:100%; background:#8a0c10; overflow:hidden; transition:all 0.3s ease; }
-.menu-lateral a { display:block; color:white; padding:20px; text-decoration:none; font-size:16px; }
+.topo { position:fixed; top:0; left:0; width:100%; background:#8a0c10; display:flex; justify-content:space-between; align-items:center; padding:20px 60px; z-index:1000; box-sizing:border-box; }
+.menu-esquerda { display:flex; gap:20px; }
+.hamburguer-menu { font-size:24px; cursor:pointer; color:white; }
+.menu-lateral { position:fixed; left:-250px; top:0; width:250px; height:100%; background-color:#8a0c10; overflow:hidden; transition:all 0.3s ease; }
+.menu-lateral a { display:block; color:white; padding:15px 20px; text-decoration:none; font-size:16px; }
 .menu-lateral a:hover { background:#5e1616; }
 .menu-lateral.show { left:0; }
-.hamburguer-menu { font-size:30px; cursor:pointer; color:white; }
-.container { text-align:center; max-width:800px; padding:40px; }
-.titulo { font-family:'Bebas Neue',sans-serif; font-size:40px; letter-spacing:2px; color:#8a0c10; margin-bottom:50px; }
-.passo { margin-bottom:40px; }
-.passo h3 { font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:1px; color:#8a0c10; margin-bottom:10px; }
-.passo p { font-size:16px; line-height:1.6; color:#444; }
+.idiomas { display:flex; gap:10px; }
+.idiomas a { text-decoration:none; color:white; font-size:14px; font-weight:600; }
+.idiomas a:hover { opacity:0.8; }
+.container { text-align:center; max-width:700px; padding:40px; }
+.hero { width:100%; max-width:700px; height:auto; margin-bottom:30px; }
+.frase { font-size:18px; font-weight:500; margin-bottom:60px; color:#444; letter-spacing:1px; }
+.contador { font-size:90px; font-weight:600; color:#8a0c10; }
+.meta { margin-top:10px; font-size:14px; letter-spacing:2px; text-transform:uppercase; color:#666; }
+.barra-container { margin:40px auto; width:100%; max-width:500px; height:6px; background:#e5e5e5; border-radius:10px; overflow:hidden; }
+.barra { height:100%; width:0%; background:#8a0c10; transition:width 1s ease-in-out; }
+.botao { display:inline-block; margin-top:40px; padding:16px 50px; font-size:14px; letter-spacing:2px; background:#8a0c10; color:white; text-decoration:none; border-radius:50px; cursor:pointer; transition:0.3s ease; }
+.botao:hover { background:#5e1616; transform:translateY(-2px); }
+.engaja { margin-top:60px; }
+.engaja img { width:120px; opacity:0.85; margin-bottom:10px; }
+.engaja p { font-size:13px; color:#777; }
 </style>
 </head>
 <body>
@@ -40,38 +45,31 @@ body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#
 </header>
 
 <div class="menu-lateral" id="menu-lateral">
-  <a href="index.html">INÍCIO</a>
-  <a href="comofunciona.html">COMO FUNCIONA</a>
-  <a href="informacoes.html">INFORMAÇÕES IMPORTANTES</a>
+  <a href="es.html">INICIO</a>
+  <a href="comofunciona-es.html">CÓMO FUNCIONA</a>
+  <a href="info-es.html">INFORMACIÓN IMPORTANTE</a>
 </div>
 
 <div class="container">
-  <div class="titulo">COMO FUNCIONA</div>
-
-  <div class="passo">
-    <h3>1. Faça sua doação</h3>
-    <p>Vá até um hemocentro ou banco de sangue na sua cidade e doe normalmente.</p>
+  <img src="arte-titulo.png" class="hero" alt="Doa Kingos 2026">
+  <div class="frase">Amar es cuidar. Cuidar es donar.</div>
+  <div class="contador" id="contador">0 / 350</div>
+  <div class="meta">Meta anual · 350 donaciones</div>
+  <div class="barra-container">
+    <div class="barra" id="barra"></div>
   </div>
-
-  <div class="passo">
-    <h3>2. Guarde o comprovante</h3>
-    <p>Após doar, guarde ou fotografe o comprovante fornecido pelo centro de doação.</p>
-  </div>
-
-  <div class="passo">
-    <h3>3. Cadastre-se no site</h3>
-    <p>Na página inicial, clique em <strong>"Registrar minha doação"</strong>, preencha o formulário e anexe o comprovante.</p>
-  </div>
-
-  <div class="passo">
-    <h3>4. Sua doação será contabilizada</h3>
-    <p>Após a verificação, sua doação será adicionada ao contador oficial da campanha.</p>
+  <a href="https://forms.gle/T1idUPskdBPYYDeXA" target="_blank" class="botao">REGISTRAR MI DONACIÓN</a>
+  <div class="engaja">
+    <img src="logo.png" alt="Engaja Pri Reis">
+    <p>Una movilización realizada por Engaja Pri Reis<br>Campaña anual inspirada por Priscilla Reis</p>
   </div>
 </div>
 
 <script>
-function toggleMenu(){document.getElementById("menu-lateral").classList.toggle("show");}
+function toggleMenu(){ const menu=document.getElementById("menu-lateral"); menu.classList.toggle("show"); }
+let doacoes=0; let meta=350;
+function atualizar(){ document.getElementById("contador").innerText=doacoes+" / "+meta; document.getElementById("barra").style.width=(doacoes/meta*100)+"%"; }
+atualizar();
 </script>
-
 </body>
 </html>
