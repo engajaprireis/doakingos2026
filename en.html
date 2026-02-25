@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    /* ===== MENU HAMBURGUER ===== */
     body {
       margin: 0;
       padding-top: 100px;
@@ -15,7 +16,6 @@
       background: #f1f1f1;
       color: #2b2b2b;
       display: flex;
-      align-items: center;
       justify-content: center;
       min-height: 100vh;
     }
@@ -39,7 +39,7 @@
       gap: 40px;
     }
 
-    .menu-esquerda a {
+    .menu-esquerda a, .hamburguer-menu {
       text-decoration: none;
       color: #f1f1f1;
       font-family: 'Bebas Neue', sans-serif;
@@ -63,6 +63,40 @@
 
     .idiomas a:hover { opacity: 0.8; }
 
+    .menu-lateral {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #8a0c10;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .menu-lateral a {
+      display: block;
+      color: white;
+      padding: 20px;
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    .menu-lateral a:hover {
+      background-color: #5e1616;
+    }
+
+    .hamburguer-menu {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .menu-lateral.show {
+      left: 0;
+    }
+
+    /* ===== CONTEÚDO ===== */
     .container {
       text-align: center;
       max-width: 700px;
@@ -87,9 +121,7 @@
 
 <header class="topo">
   <div class="menu-esquerda">
-    <a href="en.html">HOME</a>
-    <a href="howitworks.html">HOW IT WORKS</a>
-    <a href="info-en.html">IMPORTANT INFORMATION</a>
+    <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
   </div>
   <div class="idiomas">
     <a href="index.html">PT</a>
@@ -97,6 +129,13 @@
     <a href="es.html">ES</a>
   </div>
 </header>
+
+<!-- Menu Lateral -->
+<div class="menu-lateral" id="menu-lateral">
+  <a href="en.html">HOME</a>
+  <a href="howitworks.html">HOW IT WORKS</a>
+  <a href="info-en.html">IMPORTANT INFORMATION</a>
+</div>
 
 <div class="container">
 
@@ -124,6 +163,11 @@
 </div>
 
 <script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu-lateral");
+    menu.classList.toggle("show");
+  }
+
   let doacoes = 0;
   let meta = 350;
 
