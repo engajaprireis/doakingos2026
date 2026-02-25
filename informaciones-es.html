@@ -33,30 +33,46 @@
       box-sizing: border-box;
     }
 
-    .menu-esquerda a, .idiomas a {
+    .menu-esquerda a, .hamburguer-menu {
       text-decoration: none;
       color: #f1f1f1;
-    }
-
-    .menu-esquerda {
-      display: flex;
-      gap: 40px;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 22px;
       letter-spacing: 1px;
     }
 
-    .idiomas {
-      display: flex;
-      gap: 20px;
-      font-weight: 600;
-      font-size: 14px;
+    .menu-esquerda a:hover { opacity: 0.8; }
+
+    .idiomas { display: flex; gap: 20px; }
+    .idiomas a { text-decoration: none; color: #f1f1f1; font-size: 14px; font-weight: 600; }
+    .idiomas a:hover { opacity: 0.8; }
+
+    .menu-lateral {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #8a0c10;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
 
-    .container {
-      max-width: 800px;
-      padding: 40px;
+    .menu-lateral a {
+      display: block;
+      color: white;
+      padding: 20px;
+      text-decoration: none;
+      font-size: 22px;
     }
+
+    .menu-lateral a:hover { background-color: #5e1616; }
+
+    .hamburguer-menu { font-size: 30px; cursor: pointer; color: white; }
+
+    .menu-lateral.show { left: 0; }
+
+    .container { max-width: 800px; padding: 40px; }
 
     .faq-item {
       background: #fff;
@@ -76,9 +92,7 @@
       transition: background 0.3s;
     }
 
-    .faq-question:hover {
-      background: #5e1616;
-    }
+    .faq-question:hover { background: #5e1616; }
 
     .faq-answer {
       padding: 20px;
@@ -95,9 +109,7 @@
 
 <header class="topo">
   <div class="menu-esquerda">
-    <a href="es.html">INICIO</a>
-    <a href="comofunciona-es.html">CÓMO FUNCIONA</a>
-    <a href="info-es.html">INFORMACIÓN IMPORTANTE</a>
+    <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
   </div>
   <div class="idiomas">
     <a href="index.html">PT</a>
@@ -106,46 +118,54 @@
   </div>
 </header>
 
-<div class="container">
+<div class="menu-lateral" id="menu-lateral">
+  <a href="es.html">INICIO</a>
+  <a href="comofunciona-es.html">CÓMO FUNCIONA</a>
+  <a href="informaciones-es.html">INFORMACIÓN IMPORTANTE</a>
+</div>
 
+<div class="container">
   <div class="faq-item">
     <div class="faq-question">NO PUEDO DONAR SANGRE</div>
     <div class="faq-answer">
-      ¡No hay problema! Puedes utilizar el comprobante de familiares o amigos que hayan donado. Si no es posible, simplemente difundir la campaña ya será de gran ayuda.
+      ¡No hay problema! Puede usar un comprobante de familiares o amigos que hayan donado. Si no es posible, solo compartir la campaña ya es de gran ayuda.
     </div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question">EL COMPROBANTE ES OBLIGATORIO</div>
+    <div class="faq-question">¿EL COMPROBANTE ES OBLIGATORIO?</div>
     <div class="faq-answer">
-      Para registrarse en la campaña, es obligatorio adjuntar el comprobante (IMAGEN/PDF) en el sitio web.
+      Para registrar su donación en la campaña, adjuntar el comprobante (IMAGEN/PDF) en el sitio web es obligatorio.
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question">SEGURIDAD Y CONFIABILIDAD</div>
     <div class="faq-answer">
-      Todos los datos son confidenciales y se utilizan únicamente para los fines de la campaña.
+      Todos los datos son confidenciales y se utilizan únicamente para fines de la campaña.
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question">DONACIONES REALIZADAS ANTES DE LA CAMPAÑA</div>
     <div class="faq-answer">
-      Si realizaste tu donación antes de que comenzara la campaña, pero durante el año 2026, también será válida para Doa Kingos 2026.
+      Si realizó su donación antes del inicio de la campaña, pero durante 2026, también será válida para Doa Kingos 2026.
     </div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question">OTRAS DUDAS</div>
+    <div class="faq-question">OTRAS PREGUNTAS</div>
     <div class="faq-answer">
-      Si tienes alguna pregunta, puedes contactar a Engaja Pri Reis en las redes sociales y te ayudaremos.
+      Si tiene alguna pregunta, puede contactar a Engaja Pri Reis en las redes sociales, y le ayudaremos.
     </div>
   </div>
-
 </div>
 
 <script>
+  function toggleMenu() {
+    document.getElementById("menu-lateral").classList.toggle("show");
+  }
+
   const questions = document.querySelectorAll('.faq-question');
   questions.forEach(q => {
     q.addEventListener('click', () => {
