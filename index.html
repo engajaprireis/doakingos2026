@@ -199,15 +199,41 @@
 
 .destaque {
   font-weight: bold;
-} 
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.menu-esquerda {
+    display: flex;
+    gap: 20px;
+}
+
+.idiomas {
+    display: flex;
+    gap: 15px;
+}
+    
   </style>
 </head>
 
 <body>
 
-<header class="menu">
-  <a href="index.html" class="menu-link">INÍCIO</a>
-  <a href="como.html" class="menu-link destaque">COMO FUNCIONA</a>
+<header class="topo">
+    <div class="menu-esquerda">
+        <a href="index.html">INÍCIO</a>
+        <a href="comofunciona.html" class="menu-btn">COMO FUNCIONA</a>
+    </div>
+
+    <div class="idiomas">
+        <a href="#">PT</a>
+        <a href="#">EN</a>
+        <a href="#">ES</a>
+    </div>
 </header>
   
 <div class="idiomas">
