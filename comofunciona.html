@@ -8,146 +8,81 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    body { margin: 0; padding-top: 100px; font-family: 'Inter', sans-serif; background: #f1f1f1; color: #2b2b2b; display: flex; justify-content: center; min-height: 100vh; }
 
-    body {
-      margin: 0;
-      padding-top: 100px;
-      font-family: 'Inter', sans-serif;
-      background: #f1f1f1;
-      color: #2b2b2b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
+    /* TOPO */
+    .topo { position: fixed; top: 0; left: 0; width: 100%; background: #8a0c10; display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; z-index: 1000; box-sizing: border-box; }
+    .menu-esquerda { display: flex; gap: 20px; align-items: center; }
+    .menu-esquerda a { text-decoration: none; color: #f1f1f1; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1px; }
+    .idiomas { display: flex; gap: 20px; }
+    .idiomas a { text-decoration: none; color: #f1f1f1; font-size: 14px; font-weight: 600; }
+    .menu-esquerda a:hover, .idiomas a:hover { opacity: 0.8; }
 
-    /* ===== TOPO ===== */
+    /* MENU LATERAL */
+    .menu-lateral { position: fixed; left: -250px; top: 0; width: 250px; height: 100%; background-color: #8a0c10; overflow: hidden; transition: all 0.3s ease; }
+    .menu-lateral a { display: block; color: white; padding: 20px; text-decoration: none; font-size: 18px; }
+    .menu-lateral a:hover { background-color: #5e1616; }
+    .menu-lateral.show { left: 0; }
+    .hamburguer-menu { font-size: 30px; cursor: pointer; color: white; }
 
-    .topo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #8a0c10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      z-index: 1000;
-      box-sizing: border-box;
-    }
-
-    .menu-esquerda {
-      display: flex;
-      gap: 40px;
-    }
-
-    .menu-esquerda a {
-      text-decoration: none;
-      color: #f1f1f1;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 18px;
-      letter-spacing: 1px;
-    }
-
-    .menu-esquerda a:hover {
-      opacity: 0.8;
-    }
-
-    .idiomas {
-      display: flex;
-      gap: 20px;
-    }
-
-    .idiomas a {
-      text-decoration: none;
-      color: #f1f1f1;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .idiomas a:hover {
-      opacity: 0.8;
-    }
-
-    /* ===== CONTEÚDO ===== */
-
-    .container {
-      text-align: center;
-      max-width: 800px;
-      padding: 40px;
-    }
-
-    .titulo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 56px;
-      letter-spacing: 3px;
-      color: #8a0c10;
-      margin-bottom: 50px;
-    }
-
-    .passo {
-      margin-bottom: 40px;
-    }
-
-    .passo h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 2px;
-      color: #8a0c10;
-      margin-bottom: 10px;
-    }
-
-    .passo p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #444;
-    }
-
+    /* CONTEÚDO */
+    .container { text-align: center; max-width: 800px; padding: 40px; }
+    .titulo { font-family: 'Bebas Neue', sans-serif; font-size: 56px; letter-spacing: 3px; color: #8a0c10; margin-bottom: 50px; }
+    .passo { margin-bottom: 40px; }
+    .passo h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: #8a0c10; margin-bottom: 10px; }
+    .passo p { font-size: 16px; line-height: 1.6; color: #444; }
   </style>
 </head>
 
 <body>
 
 <header class="topo">
-    <div class="menu-esquerda">
-    <a href="index.html">INÍCIO</a>
-    <a href="comofunciona.html">COMO FUNCIONA</a>
-    <a href="informacoes.html">INFORMAÇÕES IMPORTANTES</a> <!-- NOVO BOTÃO -->
-</div>
-
-    <div class="idiomas">
-        <a href="index.html">PT</a>
-        <a href="en.html">EN</a>
-        <a href="es.html">ES</a>
-    </div>
+  <div class="menu-esquerda">
+    <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
+  </div>
+  <div class="idiomas">
+    <a href="index.html">PT</a>
+    <a href="en.html">EN</a>
+    <a href="es.html">ES</a>
+  </div>
 </header>
 
-<div class="container">
+<div class="menu-lateral" id="menu-lateral">
+  <a href="index.html">INÍCIO</a>
+  <a href="comofunciona.html">COMO FUNCIONA</a>
+  <a href="informacoes.html">INFORMAÇÕES IMPORTANTES</a>
+</div>
 
+<div class="container">
   <div class="titulo">COMO FUNCIONA</div>
 
   <div class="passo">
     <h3>1. Faça sua doação</h3>
-    <p>Dirija-se a um hemocentro ou banco de sangue da sua cidade e realize sua doação normalmente.</p>
+    <p>Vá a um hemocentro ou banco de sangue em sua cidade e doe normalmente.</p>
   </div>
 
   <div class="passo">
-    <h3>2. Guarde seu comprovante</h3>
-    <p>Após doar, salve ou fotografe o comprovante de doação fornecido pelo local.</p>
+    <h3>2. Guarde o comprovante</h3>
+    <p>Após doar, guarde ou fotografe o comprovante fornecido pelo centro.</p>
   </div>
 
   <div class="passo">
     <h3>3. Registre no site</h3>
-    <p>Na página inicial, clique em <strong>“Registrar minha doação”</strong>, preencha o formulário e anexe seu comprovante.</p>
+    <p>Na página inicial, clique em <strong>"Registrar minha doação"</strong>, preencha o formulário e anexe o comprovante.</p>
   </div>
 
   <div class="passo">
     <h3>4. Sua doação será contabilizada</h3>
-    <p>Após a verificação, sua doação será somada ao nosso contador oficial da campanha.</p>
+    <p>Após verificação, sua doação será adicionada ao contador oficial da campanha.</p>
   </div>
-
 </div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu-lateral");
+    menu.classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>
