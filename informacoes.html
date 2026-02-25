@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    /* ===== MENU HAMBURGUER ===== */
     body {
       margin: 0;
       padding-top: 100px;
@@ -33,30 +34,63 @@
       box-sizing: border-box;
     }
 
-    .menu-esquerda a, .idiomas a {
+    .menu-esquerda a, .hamburguer-menu {
       text-decoration: none;
       color: #f1f1f1;
-    }
-
-    .menu-esquerda {
-      display: flex;
-      gap: 40px;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 22px;
       letter-spacing: 1px;
     }
 
+    .menu-esquerda a:hover { opacity: 0.8; }
+
     .idiomas {
       display: flex;
       gap: 20px;
-      font-weight: 600;
-      font-size: 14px;
     }
 
-    .container {
-      max-width: 800px;
-      padding: 40px;
+    .idiomas a {
+      text-decoration: none;
+      color: #f1f1f1;
+      font-size: 14px;
+      font-weight: 600;
     }
+
+    .idiomas a:hover { opacity: 0.8; }
+
+    .menu-lateral {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #8a0c10;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .menu-lateral a {
+      display: block;
+      color: white;
+      padding: 20px;
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    .menu-lateral a:hover {
+      background-color: #5e1616;
+    }
+
+    .hamburguer-menu {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .menu-lateral.show { left: 0; }
+
+    /* ===== CONTEÚDO ===== */
+    .container { max-width: 800px; padding: 40px; }
 
     .faq-item {
       background: #fff;
@@ -76,9 +110,7 @@
       transition: background 0.3s;
     }
 
-    .faq-question:hover {
-      background: #5e1616;
-    }
+    .faq-question:hover { background: #5e1616; }
 
     .faq-answer {
       padding: 20px;
@@ -95,9 +127,7 @@
 
 <header class="topo">
   <div class="menu-esquerda">
-    <a href="index.html">INÍCIO</a>
-    <a href="comofunciona.html">COMO FUNCIONA</a>
-    <a href="informacoes.html">INFORMAÇÕES IMPORTANTES</a>
+    <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
   </div>
   <div class="idiomas">
     <a href="index.html">PT</a>
@@ -106,8 +136,13 @@
   </div>
 </header>
 
-<div class="container">
+<div class="menu-lateral" id="menu-lateral">
+  <a href="index.html">INÍCIO</a>
+  <a href="comofunciona.html">COMO FUNCIONA</a>
+  <a href="informacoes.html">INFORMAÇÕES IMPORTANTES</a>
+</div>
 
+<div class="container">
   <div class="faq-item">
     <div class="faq-question">NÃO POSSO DOAR SANGUE</div>
     <div class="faq-answer">
@@ -142,10 +177,14 @@
       Se tiver alguma dúvida, você pode entrar em contato pelas redes sociais do Engaja Pri Reis, que vamos ajudar você.
     </div>
   </div>
-
 </div>
 
 <script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu-lateral");
+    menu.classList.toggle("show");
+  }
+
   const questions = document.querySelectorAll('.faq-question');
   questions.forEach(q => {
     q.addEventListener('click', () => {
