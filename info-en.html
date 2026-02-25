@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Important Information | Doa Kingos 2026</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding-top: 100px;
+      font-family: 'Inter', sans-serif;
+      background: #f1f1f1;
+      color: #2b2b2b;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .topo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #8a0c10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    .menu-esquerda a, .idiomas a {
+      text-decoration: none;
+      color: #f1f1f1;
+    }
+
+    .menu-esquerda {
+      display: flex;
+      gap: 40px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+
+    .idiomas {
+      display: flex;
+      gap: 20px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 40px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .faq-question {
+      padding: 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      cursor: pointer;
+      background: #8a0c10;
+      color: #fff;
+      transition: background 0.3s;
+    }
+
+    .faq-question:hover {
+      background: #5e1616;
+    }
+
+    .faq-answer {
+      padding: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #444;
+      display: none;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topo">
+  <div class="menu-esquerda">
+    <a href="en.html">HOME</a>
+    <a href="howitworks.html">HOW IT WORKS</a>
+    <a href="info-en.html">IMPORTANT INFORMATION</a>
+  </div>
+  <div class="idiomas">
+    <a href="index.html">PT</a>
+    <a href="en.html">EN</a>
+    <a href="es.html">ES</a>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="faq-item">
+    <div class="faq-question">CAN'T DONATE BLOOD</div>
+    <div class="faq-answer">
+      No problem! You can use the donation receipt from family or friends who have donated. If not possible, simply spreading the campaign will help a lot.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">RECEIPT IS MANDATORY</div>
+    <div class="faq-answer">
+      To register in the campaign, attaching the receipt (IMAGE/PDF) on the website is mandatory.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">SECURITY AND CONFIDENTIALITY</div>
+    <div class="faq-answer">
+      All data is confidential and used solely for the campaign purposes.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">DONATIONS MADE BEFORE THE CAMPAIGN</div>
+    <div class="faq-answer">
+      If you made your donation before the campaign started, but during 2026, it will also count for Doa Kingos 2026.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">OTHER QUESTIONS</div>
+    <div class="faq-answer">
+      If you have any questions, you can contact Engaja Pri Reis on social media, and we will assist you.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const questions = document.querySelectorAll('.faq-question');
+  questions.forEach(q => {
+    q.addEventListener('click', () => {
+      const answer = q.nextElementSibling;
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+</script>
+
+</body>
+</html>
