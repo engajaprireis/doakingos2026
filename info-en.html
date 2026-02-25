@@ -33,22 +33,48 @@
       box-sizing: border-box;
     }
 
-    .menu-esquerda a, .idiomas a { text-decoration: none; color: #f1f1f1; }
-
-    .menu-esquerda {
-      display: flex;
-      gap: 40px;
+    .menu-esquerda a, .hamburguer-menu {
+      text-decoration: none;
+      color: #f1f1f1;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 22px;
       letter-spacing: 1px;
     }
 
-    .idiomas {
-      display: flex;
-      gap: 20px;
-      font-weight: 600;
-      font-size: 14px;
+    .menu-esquerda a:hover { opacity: 0.8; }
+
+    .idiomas { display: flex; gap: 20px; }
+    .idiomas a { text-decoration: none; color: #f1f1f1; font-size: 14px; font-weight: 600; }
+    .idiomas a:hover { opacity: 0.8; }
+
+    .menu-lateral {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #8a0c10;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
+
+    .menu-lateral a {
+      display: block;
+      color: white;
+      padding: 20px;
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    .menu-lateral a:hover { background-color: #5e1616; }
+
+    .hamburguer-menu {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .menu-lateral.show { left: 0; }
 
     .container { max-width: 800px; padding: 40px; }
 
@@ -87,9 +113,7 @@
 
 <header class="topo">
   <div class="menu-esquerda">
-    <a href="en.html">HOME</a>
-    <a href="howitworks.html">HOW IT WORKS</a>
-    <a href="info-en.html">IMPORTANT INFORMATION</a>
+    <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
   </div>
   <div class="idiomas">
     <a href="index.html">PT</a>
@@ -98,46 +122,54 @@
   </div>
 </header>
 
-<div class="container">
+<div class="menu-lateral" id="menu-lateral">
+  <a href="en.html">HOME</a>
+  <a href="howitworks.html">HOW IT WORKS</a>
+  <a href="info-en.html">IMPORTANT INFORMATION</a>
+</div>
 
+<div class="container">
   <div class="faq-item">
-    <div class="faq-question">I CAN'T DONATE BLOOD</div>
+    <div class="faq-question">I CANNOT DONATE BLOOD</div>
     <div class="faq-answer">
-      No problem! You can use the receipt from family members or friends who have donated. If this is not possible, sharing the campaign is already a great help.
+      No problem! You can use a receipt from family or friends who have donated. If not possible, just sharing the campaign is already very helpful.
     </div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question">THE RECEIPT IS MANDATORY</div>
+    <div class="faq-question">IS A RECEIPT REQUIRED?</div>
     <div class="faq-answer">
       To register your donation in the campaign, attaching the receipt (IMAGE/PDF) on the website is mandatory.
     </div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question">SECURITY AND CONFIDENTIALITY</div>
+    <div class="faq-question">SAFETY AND CONFIDENTIALITY</div>
     <div class="faq-answer">
-      All data is confidential and used only for campaign purposes.
+      All data is confidential and used solely for campaign purposes.
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question">DONATIONS MADE BEFORE THE CAMPAIGN</div>
     <div class="faq-answer">
-      If you made your donation before the start of the campaign but during 2026, it will also be valid for Doa Kingos 2026.
+      If you made your donation before the campaign started, but during 2026, it will also be valid for Doa Kingos 2026.
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question">OTHER QUESTIONS</div>
     <div class="faq-answer">
-      If you have any questions, you can contact Engaja Pri Reis on social media and we will assist you.
+      If you have any questions, you can contact Engaja Pri Reis on social media, and we will assist you.
     </div>
   </div>
-
 </div>
 
 <script>
+  function toggleMenu() {
+    document.getElementById("menu-lateral").classList.toggle("show");
+  }
+
   const questions = document.querySelectorAll('.faq-question');
   questions.forEach(q => {
     q.addEventListener('click', () => {
