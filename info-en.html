@@ -7,21 +7,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#f1f1f1; color:#2b2b2b; display:flex; justify-content:center; min-height:100vh; }
-.topo { position:fixed; top:0; left:0; width:100%; background:#8a0c10; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; z-index:1000; box-sizing:border-box; }
-.menu-esquerda { display:flex; gap:10px; align-items:center; }
-.menu-esquerda a { text-decoration:none; color:#f1f1f1; font-family:'Bebas Neue',sans-serif; font-size:16px; }
-.menu-esquerda a:hover { opacity:0.8; }
-.idiomas { display:flex; gap:15px; }
-.idiomas a { text-decoration:none; color:#f1f1f1; font-size:14px; font-weight:600; }
+.topo { position:fixed; top:0; left:0; width:100%; background:#8a0c10; display:flex; justify-content:space-between; align-items:center; padding:20px 60px; z-index:1000; box-sizing:border-box; }
+.hamburguer-menu { font-size:24px; cursor:pointer; color:white; }
+.idiomas { display:flex; gap:10px; }
+.idiomas a { text-decoration:none; color:white; font-size:14px; font-weight:600; }
 .idiomas a:hover { opacity:0.8; }
-.menu-lateral { position:fixed; left:-250px; top:0; width:250px; height:100%; background:#8a0c10; overflow:hidden; transition:all 0.3s ease; }
-.menu-lateral a { display:block; color:white; padding:20px; text-decoration:none; font-size:16px; }
+.menu-lateral { position:fixed; left:-250px; top:80px; width:250px; height:calc(100% - 80px); background-color:#8a0c10; overflow:hidden; transition:all 0.3s ease; z-index:2000; }
+.menu-lateral a { display:block; color:white; padding:15px 20px; text-decoration:none; font-size:16px; }
 .menu-lateral a:hover { background:#5e1616; }
 .menu-lateral.show { left:0; }
-.hamburguer-menu { font-size:30px; cursor:pointer; color:white; }
 .container { max-width:800px; padding:40px; }
 .faq-item { background:#fff; border-radius:8px; margin-bottom:15px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-.faq-question { padding:20px; font-family:'Bebas Neue',sans-serif; font-size:18px; cursor:pointer; background:#8a0c10; color:#fff; transition:0.3s; }
+.faq-question { padding:20px; font-family:'Bebas Neue',sans-serif; font-size:20px; cursor:pointer; background:#8a0c10; color:#fff; transition:background 0.3s; }
 .faq-question:hover { background:#5e1616; }
 .faq-answer { padding:20px; font-size:16px; line-height:1.6; color:#444; display:none; background:#f9f9f9; }
 </style>
@@ -29,9 +26,7 @@ body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#
 <body>
 
 <header class="topo">
-  <div class="menu-esquerda">
-    <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
-  </div>
+  <div class="hamburguer-menu" onclick="toggleMenu()">☰</div>
   <div class="idiomas">
     <a href="index.html">PT</a>
     <a href="en.html">EN</a>
@@ -47,15 +42,15 @@ body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#
 
 <div class="container">
   <div class="faq-item">
-    <div class="faq-question">I CANNOT DONATE BLOOD</div>
+    <div class="faq-question">CANNOT DONATE BLOOD</div>
     <div class="faq-answer">
-      No problem! You can use donation receipts from family or friends. If that is not possible, just helping spread the campaign is already a great contribution.
+      No problem! You can use a receipt from family or friends who donated. If not possible, simply sharing the campaign is already very helpful.
     </div>
   </div>
   <div class="faq-item">
-    <div class="faq-question">IS THE RECEIPT REQUIRED?</div>
+    <div class="faq-question">RECEIPT IS MANDATORY</div>
     <div class="faq-answer">
-      To register your donation in the campaign, attaching the receipt (IMAGE/PDF) on the website is mandatory.
+      To register your donation, attaching the receipt (IMAGE/PDF) on the site is mandatory.
     </div>
   </div>
   <div class="faq-item">
@@ -67,20 +62,21 @@ body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#
   <div class="faq-item">
     <div class="faq-question">DONATIONS MADE BEFORE THE CAMPAIGN</div>
     <div class="faq-answer">
-      If you made your donation before the campaign started but during 2026, it will still count for Doa Kingos 2026.
+      If you donated before the campaign start, but during 2026, it will also count for Doa Kingos 2026.
     </div>
   </div>
   <div class="faq-item">
     <div class="faq-question">OTHER QUESTIONS</div>
     <div class="faq-answer">
-      If you have any questions, contact Engaja Pri Reis social media and we’ll help you.
+      If you have any questions, you can contact Engaja Pri Reis on social media for support.
     </div>
   </div>
 </div>
 
 <script>
-function toggleMenu(){document.getElementById("menu-lateral").classList.toggle("show");}
-const questions=document.querySelectorAll('.faq-question');questions.forEach(q=>{q.addEventListener('click',()=>{const a=q.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block';});});
+function toggleMenu(){ const menu=document.getElementById("menu-lateral"); menu.classList.toggle("show"); }
+const questions = document.querySelectorAll('.faq-question');
+questions.forEach(q=>{q.addEventListener('click',()=>{const answer=q.nextElementSibling; answer.style.display=answer.style.display==='block'?'none':'block';});});
 </script>
 
 </body>
