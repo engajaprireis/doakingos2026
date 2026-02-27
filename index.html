@@ -65,10 +65,12 @@ body { margin:0; padding-top:100px; font-family:'Inter',sans-serif; background:#
 </div>
 
 <script>
-function toggleMenu(){ const menu = document.getElementById("menu-lateral"); menu.classList.toggle("show"); }
-let doacoes = 0; let meta = 350;
-function atualizar(){ document.getElementById("contador").innerText = doacoes + " / " + meta; document.getElementById("barra").style.width = (doacoes/meta*100)+"%"; }
-atualizar();
+function toggleMenu(){ 
+  const menu = document.getElementById("menu-lateral"); 
+  menu.classList.toggle("show"); 
+}
 </script>
+
+<script src="contador.js"></script>
 </body>
 </html>
