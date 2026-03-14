@@ -1,4 +1,4 @@
-let doacoes = 1; // ALTERE SOMENTE AQUI
+let doacoes = 7; // ALTERE SOMENTE AQUI
 let meta = 350;
 
 function atualizar() {
